@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Sanctum — Il tuo diario di salute e benessere</title>
+
+  <!-- === FONT ESTERNI GOOGLE & ICONE MATERIAL === -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Nunito:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- === FOGLIO DI STILE ESTERNO === -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========================================================================
+       === CONTENITORE PRINCIPALE MOBILE-FIRST (MAIN) ===
+       ======================================================================== -->
+  <main>
+
+    <!-- ======================================================================
+         === 1. HEADER DELL'APPLICAZIONE ===
+         ====================================================================== -->
+    <header class="app-header">
+      <!-- Badge tematico "Spazio Quotidiano" -->
+      <div class="header-badge">
+        <span class="material-symbols-rounded">spa</span>
+        <span>Spazio Quotidiano</span>
+      </div>
+      <!-- Titolo Principale dell'App -->
+      <h1 class="app-title">SANCTUM</h1>
+      <!-- Sottotitolo Accogliente -->
+      <p class="app-subtitle">Il tuo diario di salute e benessere</p>
+    </header>
+
+    <!-- ======================================================================
+         === 2. SEZIONE GIARDINO DEL BENESSERE (SEMINO -> PIANTA -> ALBERO) ===
+         ====================================================================== -->
+    <section class="card plant-card" id="plantSection" aria-label="Crescita delle buone abitudini">
+      <div class="card-top">
+        <div class="card-title-group">
+          <!-- Icona Giardino -->
+          <div class="icon-box icon-box-plant">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" fill="#e8f3de"/>
+              <path d="M24 14C24 14 20 18 20 22C20 24.2 21.8 26 24 26C26.2 26 28 24.2 28 22C28 18 24 14 24 14Z" fill="#588544"/>
+              <path d="M19 23C16 23 14 26 14 29C14 31 16 32 18 32C21 32 22 28 22 28" stroke="#4e653f" stroke-width="2" stroke-linecap="round"/>
+              <path d="M24 26V36" stroke="#4e653f" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M17 36H31" stroke="#8c6a4d" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <span class="card-category sage">Il Tuo Percorso</span>
+            <h2 class="card-heading">Giardino del Benessere</h2>
+          </div>
+        </div>
+        <!-- Badge indicatore del giorno corrente -->
+        <span class="pill-badge warm" id="plantBadge">Giorno 1 di 5</span>
+      </div>
+
+      <!-- Vetrina centrale con disegno SVG dinamico -->
+      <div class="plant-showcase">
+        <div class="plant-svg-container">
+          <!-- Disegno SVG dinamico degli stadi di crescita -->
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Ombra del vaso -->
+            <ellipse cx="50" cy="90" rx="26" ry="5" fill="#3a2517" opacity="0.18"/>
+            <!-- Corpo del vaso di terracotta -->
+            <path d="M30 60 L35 86 C35 88, 65 88, 65 86 L70 60 Z" fill="#c8784d"/>
+            <!-- Ombra laterale sul vaso -->
+            <path d="M35 86 C35 88, 65 88, 65 86 L62 76 C52 78, 40 78, 36 76 Z" fill="#b0643b"/>
+            <!-- Bordo superiore del vaso -->
+            <rect x="26" y="55" width="48" height="9" rx="4.5" fill="#db895c"/>
+            <!-- Terra soffice nel vaso -->
+            <ellipse cx="50" cy="59" rx="21" ry="4.5" fill="#4a3221"/>
+
+            <!-- STADIO 0: Semino appena piantato -->
+            <g id="svgStageSeed" style="display: block;">
+              <ellipse cx="50" cy="58" rx="4.5" ry="3" fill="#8d562b" stroke="#f6dec7" stroke-width="0.8"/>
+              <circle cx="50" cy="54" r="1.5" fill="#f8cf5d" opacity="0.8"/>
+            </g>
+
+            <!-- STADIO 1: Primo piccolo germoglio -->
+            <g id="svgStageSprout" style="display: none;">
+              <path d="M50 58 Q49 46 50 42" stroke="#4e653f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M50 42 C44 40, 42 46, 49 47 Z" fill="#6ba353"/>
+              <path d="M50 42 C56 40, 58 46, 51 47 Z" fill="#88c96c"/>
+            </g>
+
+            <!-- STADIO 2: Piantina con foglie -->
+            <g id="svgStagePlant" style="display: none;">
+              <path d="M50 58 Q51 38 50 28" stroke="#415934" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <path d="M50 46 C38 43, 35 52, 48 50 Z" fill="#588544"/>
+              <path d="M50 40 C62 37, 65 46, 52 44 Z" fill="#6ea855"/>
+              <path d="M50 28 C42 22, 44 32, 49 31 Z" fill="#7ebd63"/>
+              <path d="M50 28 C58 22, 56 32, 51 31 Z" fill="#8fd571"/>
+            </g>
+
+            <!-- STADIO 3: Pianta rigogliosa e fiorita -->
+            <g id="svgStageBush" style="display: none;">
+              <path d="M50 58 Q51 34 50 22" stroke="#3b522f" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <path d="M50 48 C36 44, 32 54, 48 51 Z" fill="#4d783b"/>
+              <path d="M50 42 C64 38, 68 48, 52 45 Z" fill="#5f9648"/>
+              <path d="M50 34 C34 28, 32 38, 48 37 Z" fill="#6da853"/>
+              <path d="M50 28 C66 22, 68 32, 52 31 Z" fill="#7fbe62"/>
+              <circle cx="36" cy="30" r="2.5" fill="#f89a80"/>
+              <circle cx="64" cy="24" r="2.5" fill="#ffc266"/>
+              <circle cx="50" cy="20" r="3" fill="#ff7f66"/>
+            </g>
+
+            <!-- STADIO 4: Grande Albero del Benessere (Obiettivo) -->
+            <g id="svgStageTree" style="display: none;">
+              <path d="M47 58 L46 36 L54 36 L53 58 Z" fill="#6e4d34"/>
+              <ellipse cx="50" cy="26" rx="27" ry="20" fill="#3f662b"/>
+              <ellipse cx="41" cy="23" rx="18" ry="15" fill="#4f7e36"/>
+              <ellipse cx="58" cy="23" rx="17" ry="14" fill="#5f9441"/>
+              <ellipse cx="50" cy="18" rx="16" ry="12" fill="#71ad4e"/>
+              <circle cx="38" cy="22" r="2.8" fill="#ff7a59"/>
+              <circle cx="62" cy="19" r="2.8" fill="#fdb849"/>
+              <circle cx="50" cy="12" r="3" fill="#ffe259"/>
+              <circle cx="48" cy="27" r="2.5" fill="#ff7a59"/>
+              <circle cx="56" cy="26" r="2.5" fill="#fdb849"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Descrizione dello stadio attuale -->
+        <div class="plant-info-group">
+          <h3 class="plant-stage-title" id="plantStageTitle">Stadio 1: Semino nel vaso</h3>
+          <p class="plant-stage-desc" id="plantStageDesc">
+            Hai piantato il semino delle buone abitudini. Innaffialo ogni giorno per farlo germogliare!
+          </p>
+        </div>
+      </div>
+
+      <!-- Stepper a 5 pallini -->
+      <div class="plant-stepper" id="plantStepper" aria-label="Progresso di crescita in 5 stadi">
+        <div class="step-item">
+          <span class="step-dot active">1</span>
+          <span class="step-line"></span>
+        </div>
+        <div class="step-item">
+          <span class="step-dot">2</span>
+          <span class="step-line"></span>
+        </div>
+        <div class="step-item">
+          <span class="step-dot">3</span>
+          <span class="step-line"></span>
+        </div>
+        <div class="step-item">
+          <span class="step-dot">4</span>
+          <span class="step-line"></span>
+        </div>
+        <div class="step-item">
+          <span class="step-dot">5</span>
+        </div>
+      </div>
+
+      <!-- Pulsanti: Innaffia/Cresci e Riparti da zero -->
+      <div class="plant-btn-bar">
+        <button type="button" class="btn-plant grow" id="growPlantBtn" aria-label="Avanza di un giorno e innaffia la pianta">
+          <span class="material-symbols-rounded">water_drop</span>
+          <span id="growBtnText">Innaffia e Cresci (+1 Giorno)</span>
+        </button>
+        <button type="button" class="btn-plant reset" id="resetPlantBtn" aria-label="Riparti da zero con il semino">
+          <span class="material-symbols-rounded">restart_alt</span>
+          <span>Riparti da zero</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         === 3. ELEMENTO 1: TERAPIA & INTEGRATORI (PILLOLE ASSUNTE) ===
+         ====================================================================== -->
+    <section class="card" aria-label="Terapia e Integratori">
+      <div class="card-top">
+        <div class="card-title-group">
+          <!-- Illustrazione Pillola bicolore -->
+          <div class="icon-box icon-box-pill">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="8" y="14" width="24" height="12" rx="6" transform="rotate(-30 20 20)" fill="#f7ede2" stroke="#dfcbb5" stroke-width="1.5"/>
+              <path d="M12 18 L22 12" stroke="#8e422d" stroke-width="1.5" stroke-dasharray="2 2"/>
+              <path d="M16 26 C13 24 13 20 16 18 L21 15 L26 24 L21 27 C19 28 17 28 16 26 Z" fill="#8e422d" opacity="0.85"/>
+            </svg>
+          </div>
+          <div>
+            <span class="card-category berry">Terapia &amp; Integratori</span>
+            <h2 class="card-heading">Pillole Assunte</h2>
+          </div>
+        </div>
+        <!-- Badge Orario -->
+        <div class="pill-badge warm">
+          <span class="material-symbols-rounded">schedule</span>
+          <span>Ore 20:00</span>
+        </div>
+      </div>
+
+      <!-- Barra di input pillola -->
+      <div class="input-bar">
+        <span class="material-symbols-rounded input-icon">medication</span>
+        <label for="pillInput" style="display:none;">Nome del farmaco o integratore</label>
+        <input type="text" id="pillInput" placeholder="Es. Paracetamolo 500mg, Multivitaminico..." />
+        <button type="button" class="btn-add brown" id="addPillBtn" aria-label="Aggiungi pillola">
+          <span class="material-symbols-rounded">add</span>
+        </button>
+      </div>
+
+      <!-- Micro-stato pillole giornaliere -->
+      <div class="pill-status-row">
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span class="status-pulse-dot" id="pillPulseDot"></span>
+          <strong id="pillProgressText">Oggi: 2/3 assunte</strong>
+          <span style="color: var(--text-muted); font-size: 11px;">(Prossima: Ore 20:00)</span>
+        </div>
+        <div class="pill-dots-container" id="pillDots">
+          <span class="pill-capsule-dot filled"></span>
+          <span class="pill-capsule-dot filled"></span>
+          <span class="pill-capsule-dot" id="pillDotThree"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         === 4. ELEMENTO 2: ALIMENTAZIONE & CALORIE (CON POLLICE IN SU) ===
+         ====================================================================== -->
+    <section class="card" aria-label="Nutrizione Quotidiana">
+      <div class="card-top">
+        <div class="card-title-group">
+          <!-- Illustrazione Mela Rossa -->
+          <div class="icon-box icon-box-food">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M20 10 C21 7 24 6 26 7 C26 9 24 11 21 11 Z" fill="#5a7649"/>
+              <path d="M20 10 C20 8 19 6 18 5" stroke="#634735" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M14 13 C9 13 7 19 8 26 C9 32 14 35 18 34 C19 33.7 21 33.7 22 34 C26 35 31 32 32 26 C33 19 31 13 26 13 C23 13 21 15 20 15 C19 15 17 13 14 13 Z" fill="#e05343"/>
+              <ellipse cx="14" cy="18" rx="2" ry="4" transform="rotate(-30 14 18)" fill="#ffffff" opacity="0.35"/>
+            </svg>
+          </div>
+          <div>
+            <span class="card-category sage">Nutrizione Quotidiana</span>
+            <h2 class="card-heading">Alimentazione &amp; Calorie</h2>
+          </div>
+        </div>
+        <!-- Badge Calorie Residue -->
+        <span class="pill-badge calorie" id="calorieBadge">-580 kcal</span>
+      </div>
+
+      <!-- Barra di input alimenti -->
+      <div class="input-bar">
+        <span class="material-symbols-rounded input-icon">restaurant</span>
+        <label for="foodInput" style="display:none;">Alimento o pasto consumato</label>
+        <input type="text" id="foodInput" placeholder="Es. 100g riso integrale, 1 mela..." />
+        <button type="button" class="btn-add green" id="addFoodBtn" aria-label="Aggiungi cibo consumato">
+          <span class="material-symbols-rounded">add</span>
+        </button>
+      </div>
+
+      <!-- Calorie e Barra di Avanzamento -->
+      <div class="progress-container">
+        <div class="progress-labels">
+          <span>Calcolate: <strong id="calorieAmountText">1.420</strong> / 2.000 kcal</span>
+          <span class="progress-percent green" id="caloriePercentText">71%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill green" id="calorieProgressBar" style="width: 71%;"></div>
+        </div>
+      </div>
+
+      <!-- Barra di azione per Rispettare la Dieta (Funzionalità 1) -->
+      <div class="diet-action-bar">
+        <div class="diet-status-text">
+          <span class="material-symbols-rounded" style="font-size: 16px; color: var(--color-sage);">check_circle</span>
+          <span id="dietStatusLabel">Obiettivo dieta in corso</span>
+        </div>
+        <button type="button" class="btn-diet-thumb" id="dietCheckBtn" aria-label="Conferma che hai rispettato la dieta oggi">
+          <span class="material-symbols-rounded">thumb_up</span>
+          <span id="dietBtnText">Rispetta Dieta</span>
+        </button>
+      </div>
+
+      <!-- BANNER CELEBRATIVO POLLICE IN SU (Compare quando si rispetta la dieta) -->
+      <div class="thumb-celebration" id="thumbCelebration" role="status">
+        <div class="thumb-badge-large">👍</div>
+        <div class="thumb-celebration-text">
+          <strong>Ottimo Lavoro! Dieta Rispettata!</strong>
+          <small>Hai mantenuto il piano nutrizionale e nutrito le tue buone abitudini.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         === 5. ELEMENTO 3: EQUILIBRIO IDRICO (IDRATAZIONE & LIQUIDI) ===
+         ====================================================================== -->
+    <section class="card" aria-label="Equilibrio Idrico">
+      <div class="card-top">
+        <div class="card-title-group">
+          <!-- Illustrazione Bottiglia Minimalista -->
+          <div class="icon-box icon-box-water">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="17" y="6" width="6" height="4" rx="2" fill="#546b73"/>
+              <rect x="15" y="10" width="10" height="4" rx="1.5" fill="#3a4f56"/>
+              <rect x="13" y="14" width="14" height="20" rx="6" fill="#2d3d42"/>
+              <rect x="17" y="18" width="6" height="12" rx="3" fill="#66b5c9"/>
+            </svg>
+          </div>
+          <div>
+            <span class="card-category sky">Equilibrio Idrico</span>
+            <h2 class="card-heading">Idratazione &amp; Liquidi</h2>
+          </div>
+        </div>
+        <!-- Scorciatoia rapida +250ml -->
+        <button type="button" class="pill-badge cyan-btn" id="quickWaterBtn" aria-label="Aggiungi rapidamente 250 millilitri di acqua">
+          +250ml
+        </button>
+      </div>
+
+      <!-- Barra di input liquidi -->
+      <div class="input-bar">
+        <span class="material-symbols-rounded input-icon">water_drop</span>
+        <label for="waterInput" style="display:none;">Quantità o bevanda assunta</label>
+        <input type="text" id="waterInput" placeholder="Es. 500ml acqua naturale, 250ml tè verde..." />
+        <button type="button" class="btn-add cyan" id="addWaterBtn" aria-label="Aggiungi liquido">
+          <span class="material-symbols-rounded">add</span>
+        </button>
+      </div>
+
+      <!-- Avanzamento Idratazione -->
+      <div class="progress-container">
+        <div class="progress-labels">
+          <span><strong id="waterAmountText">1.750 ml</strong> su 2.500 ml raggiunti</span>
+          <span class="progress-percent cyan" id="waterPercentText">70%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill cyan" id="waterProgressBar" style="width: 70%;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         === 6. PULSANTE D'AZIONE: PIANIFICA PIANO & DIETA ===
+         ====================================================================== -->
+    <div class="planner-button-container">
+      <button type="button" class="btn-planner" id="plannerBtn" aria-label="Pianifica piano terapeutico e regola la dieta">
+        <span class="material-symbols-rounded">edit_calendar</span>
+        <div>
+          <span class="planner-text-title">Pianifica Piano &amp; Dieta</span>
+          <span class="planner-text-sub">+ Aggiungi pillola o regola dieta</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- ======================================================================
+         === 7. PROMEMORIA & PIANO GIORNALIERO ===
+         ====================================================================== -->
+    <section class="card" aria-label="Promemoria e Piano Giornaliero">
+      <div class="card-top">
+        <div class="card-title-group">
+          <div style="width: 28px; height: 28px; border-radius: 50%; background: #f3e6d8; display: flex; align-items: center; justify-content: center; color: var(--color-berry-dark);">
+            <span class="material-symbols-rounded" style="font-size: 18px;">event_available</span>
+          </div>
+          <h3 class="card-heading" style="font-size: 13px;">Promemoria &amp; Piano Giornaliero</h3>
+        </div>
+        <span class="pill-badge warm" style="font-size: 9.5px; padding: 2px 10px;">Oggi</span>
+      </div>
+
+      <div class="reminders-list">
+        <!-- Promemoria 1: Farmaco con pulsante di conferma assunzione -->
+        <div class="reminder-item" id="pillReminderRow">
+          <div class="reminder-content">
+            <div class="reminder-icon-box dose">
+              <span class="material-symbols-rounded">medication_liquid</span>
+            </div>
+            <div class="reminder-text">
+              <p class="reminder-text-title">Ore 20:30 • Pillola Magnesio + Calcio</p>
+              <p class="reminder-text-desc">Da assumere dopo cena con un bicchiere d'acqua</p>
+            </div>
+          </div>
+          <button type="button" class="btn-confirm-dose" id="confirmDoseBtn" aria-label="Conferma assunzione della dose serale">
+            <span class="material-symbols-rounded" id="confirmDoseIcon">check</span>
+            <span id="confirmDoseText">Conferma assunzione</span>
+          </button>
+        </div>
+
+        <!-- Promemoria 2: Cena pianificata -->
+        <div class="reminder-item">
+          <div class="reminder-content">
+            <div class="reminder-icon-box dinner">
+              <span class="material-symbols-rounded">dinner_dining</span>
+            </div>
+            <div class="reminder-text">
+              <p class="reminder-text-title">Cena consigliata • 450 kcal rimanenti</p>
+              <p class="reminder-text-desc">Consigliate Proteine magre e verdure a foglia verde</p>
+            </div>
+          </div>
+          <span class="badge-planned">Pianificata</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         === 8. SEZIONE INFORMATIVA: "SAPEVI CHE..." ===
+         ====================================================================== -->
+    <section class="card card-facts" aria-label="Curiosità e Consigli di Salute">
+      <div class="card-top" style="margin-bottom: 6px;">
+        <div class="card-title-group">
+          <span style="font-size: 18px;" aria-hidden="true">💡</span>
+          <h3 class="card-heading" style="font-size: 13px;">Sapevi che...</h3>
+        </div>
+        <button type="button" class="btn-rotate-fact" id="rotateFactBtn" aria-label="Leggi un altro consiglio di salute">
+          <span class="material-symbols-rounded">autorenew</span>
+          <span>Altro consiglio</span>
+        </button>
+      </div>
+
+      <p class="fact-paragraph" id="factParagraph">
+        Bere un bicchiere d'acqua 15 minuti prima dei pasti favorisce una corretta assimilazione dei nutrienti e aiuta a calcolare meglio il senso di sazietà naturale.
+      </p>
+
+      <div class="fact-footer">
+        <span class="material-symbols-rounded">verified</span>
+        <span>Consiglio verificato dalla redazione medica Sanctum</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       === JAVASCRIPT ESTERNO COLLEGATO SUBITO PRIMA DI </BODY> ===
+       ======================================================================== -->
+  <script src="script.js"></script>
+</body>
+</html>

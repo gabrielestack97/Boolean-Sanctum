@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="mobile_blank" name="shell-type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 16px); }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .font-michroma {
+      font-family: 'Michroma', sans-serif;
+    }
+    .wicker-bg {
+      background-color: #523b2b;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(138, 97, 68, 0.45) 0%, transparent 65%),
+        radial-gradient(circle at 100% 40%, rgba(95, 68, 48, 0.35) 0%, transparent 50%),
+        radial-gradient(circle at 0% 80%, rgba(68, 48, 33, 0.5) 0%, transparent 50%);
+    }
+    .creamy-card {
+      background: linear-gradient(180deg, #fefcf9 0%, #fdf8f0 100%);
+      box-shadow: 0 10px 24px -4px rgba(35, 20, 10, 0.22), 0 2px 6px -1px rgba(35, 20, 10, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+    .soft-pill-inset {
+      background: #f5eedf;
+      box-shadow: inset 0 2px 4px rgba(84, 60, 43, 0.08);
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            bark: {
+              800: "#432f22",
+              700: "#523b2b",
+              600: "#634735",
+              500: "#795a43",
+              200: "#d9c5b2",
+              100: "#f0e6dc"
+            },
+            cream: {
+              DEFAULT: "#fefcf9",
+              card: "#fdf8f0",
+              input: "#f4ede1",
+              border: "#ece2d0"
+            },
+            kawaii: {
+              sage: "#4e653f",
+              sageLight: "#d0ebbb",
+              berry: "#8e422d",
+              berryLight: "#ffdbd1",
+              peach: "#ffac9f",
+              sky: "#427a8c",
+              skyLight: "#d6f2fa",
+              warmBrown: "#543c2b"
+            }
+          },
+          fontFamily: {
+            michroma: ["Michroma", "sans-serif"],
+            body: ["Plus Jakarta Sans", "Nunito", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="wicker-bg font-body text-[#3c2a1e] min-h-screen flex flex-col pt-safe pb-safe selection:bg-[#d0ebbb] selection:text-[#0d2003]">
+<main class="flex-1 flex flex-col relative w-full px-4 sm:px-6 max-w-md mx-auto">
+<div class="flex flex-col w-full pb-10 space-y-4">
+<!-- 1. HEADER -->
+<header class="flex flex-col items-center justify-center text-center pt-3 pb-2">
+<!-- Tag Badge -->
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#fcf6ec]/90 backdrop-blur-md border border-[#e8dccb]/70 shadow-[0_4px_12px_rgba(30,18,10,0.15)] mb-2">
+<span class="material-symbols-rounded text-[#4e653f] text-[15px]" style="font-variation-settings: 'FILL' 1;">spa</span>
+<span class="font-michroma text-[9.5px] text-[#4e653f] tracking-[0.16em] uppercase font-bold">SPAZIO QUOTIDIANO</span>
+</div>
+<!-- Title -->
+<h1 class="font-michroma tracking-wider text-[28px] text-[#fefcf8] drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] select-none">
+          SANCTUM
+        </h1>
+<!-- Subtitle -->
+<p class="font-body text-[13px] text-[#dfcfbe] font-medium tracking-wide mt-1">
+          Il tuo diario di salute e benessere
+        </p>
+</header>
+<!-- 2. ELEMENTO PRINCIPALE 1: BARRA PILLOLE ASSUNTE -->
+<section class="creamy-card rounded-[28px] p-4 border border-[#fffdfa]/80 relative overflow-hidden transition-all duration-200">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<!-- Icon Illustration 6: Pill -->
+<div class="w-12 h-12 rounded-[20px] bg-[#fdf5eb] p-1.5 shadow-[inset_0_2px_5px_rgba(110,80,50,0.06),0_2px_6px_rgba(0,0,0,0.04)] border border-[#eddcc7] flex items-center justify-center shrink-0">
+<img alt="Pillola Stilizzata Color Panna" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1V9-BroL6XUw-PJhKGmjXQVlNv5Q280AJYjzKKJtKWfm9HuuNyAe3z38Mk6agKVTdxJrLn3HvfbBfL8H3neHyIGNaXtGnBsmCPXAkLLCu5VrZB08zlm379Vw9EyX6-_HuvkaIhDZDjObAyfp4hbFSsOPUu7f3tZOrtHjW8ArqLiFb8LkO8xDBm7bNgXoPb6QhstVW2A1vrEAkYnFtiiroxPfegS41ebvB48WjbyjoZH4a6ZtNzEwBxMq0U"/>
+</div>
+<div>
+<span class="font-michroma text-[9px] text-[#8e422d] uppercase tracking-wider font-bold block">Terapia &amp; Integratori</span>
+<h2 class="font-michroma text-[15px] text-[#3c2a1e] font-semibold leading-tight mt-0.5">Pillole Assunte</h2>
+</div>
+</div>
+<!-- Badge Ore 20:00 -->
+<div class="flex items-center gap-1.5 bg-[#f5e9d9] px-3 py-1 rounded-full border border-[#e5d4bf] shadow-xs">
+<span class="material-symbols-rounded text-[#702c19] text-[15px]">schedule</span>
+<span class="font-michroma text-[10px] text-[#543c2b] font-bold">Ore 20:00</span>
+</div>
+</div>
+<!-- Input bar rapido -->
+<div class="flex items-center gap-2 soft-pill-inset rounded-2xl px-3.5 py-1.5 border border-[#e8dccb]">
+<span class="material-symbols-rounded text-[#9c8979] text-[18px]">medication</span>
+<input class="w-full bg-transparent font-body text-[13px] text-[#3c2a1e] placeholder:text-[#a08f80] focus:outline-none min-w-0 font-medium" id="pillInput" placeholder="Es. Paracetamolo 500mg, Multivitaminico..." type="text"/>
+<button aria-label="Aggiungi pillola" class="w-8 h-8 rounded-full bg-[#6d5341] text-[#fff8f1] flex items-center justify-center shrink-0 shadow-sm active:scale-95 hover:bg-[#543c2b] transition-all" onclick="registerPill()">
+<span class="material-symbols-rounded text-[18px] font-bold">add</span>
+</button>
+</div>
+<!-- Micro-stato pillole -->
+<div class="flex items-center justify-between mt-3 pt-2 text-[#6e5849] text-[12px] border-t border-[#f1e6d4]">
+<div class="flex items-center gap-1.5 font-medium">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-[#8e422d] animate-pulse shadow-[0_0_8px_rgba(142,66,45,0.4)]"></span>
+<span class="font-bold text-[#3c2a1e]" id="pillProgressText">Oggi: 2/3 assunte</span>
+<span class="text-[#8c7768] text-[11px]">(Prossima: Ore 20:00)</span>
+</div>
+<div class="flex gap-1.5 items-center" id="pillDots">
+<span class="w-4 h-2 rounded-full bg-[#702c19] shadow-xs"></span>
+<span class="w-4 h-2 rounded-full bg-[#702c19] shadow-xs"></span>
+<span class="w-4 h-2 rounded-full bg-[#e3d7c3]"></span>
+</div>
+</div>
+</section>
+<!-- 3. ELEMENTO PRINCIPALE 2: BARRA CIBI E CALORIE ASSUNTE -->
+<section class="creamy-card rounded-[28px] p-4 border border-[#fffdfa]/80 relative overflow-hidden transition-all duration-200">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<!-- Icon Illustration 5: Apple -->
+<div class="w-12 h-12 rounded-[20px] bg-[#fff3f1] p-1.5 shadow-[inset_0_2px_5px_rgba(239,68,68,0.08),0_2px_6px_rgba(0,0,0,0.04)] border border-[#ffd2cc] flex items-center justify-center shrink-0">
+<img alt="Mela Rossa Stilizzata" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBTtDGmuybb7H9vP9WPZEuqXyF0NGzR1N5CkySVppRIgiP3IdFiITGnMGL5FbbehpN2C8onHIGLzAhoTbA1TeLmyJ0WcdHQF1wcleqJ1B4I06gTAMBoJeHag7xgH9UB_FqRg0Gs5tDCdCS7qKhGUbmruhTuZdlFNEspgXyV6HOkfVAvg3I8RAuqMiHVcDc9jiSOueq5mmHb-ylYt_I7vRzfFjCN_OpLs4VgMOQ92wK4XjgZqFkv9uoQ2E"/>
+</div>
+<div>
+<span class="font-michroma text-[9px] text-[#4e653f] uppercase tracking-wider font-bold block">Nutrizione Quotidiana</span>
+<h2 class="font-michroma text-[15px] text-[#3c2a1e] font-semibold leading-tight mt-0.5">Alimentazione &amp; Calorie</h2>
+</div>
+</div>
+<!-- Badge -580 kcal -->
+<span class="font-michroma text-[10px] bg-[#f9e2dd] text-[#8e422d] font-bold px-3 py-1 rounded-full border border-[#f2ccc4] shadow-xs">
+            -580 kcal
+          </span>
+</div>
+<!-- Input bar alimenti -->
+<div class="flex items-center gap-2 soft-pill-inset rounded-2xl px-3.5 py-1.5 border border-[#e8dccb]">
+<span class="material-symbols-rounded text-[#9c8979] text-[18px]">restaurant</span>
+<input class="w-full bg-transparent font-body text-[13px] text-[#3c2a1e] placeholder:text-[#a08f80] focus:outline-none min-w-0 font-medium" id="foodInput" placeholder="Es. 100g riso integrale, 1 mela..." type="text"/>
+<button aria-label="Aggiungi cibo" class="w-8 h-8 rounded-full bg-[#4e653f] text-[#ffffff] flex items-center justify-center shrink-0 shadow-sm active:scale-95 hover:bg-[#3f5233] transition-all" onclick="registerFood()">
+<span class="material-symbols-rounded text-[18px] font-bold">add</span>
+</button>
+</div>
+<!-- Calorie e Barra Progresso -->
+<div class="mt-3 pt-2 border-t border-[#f1e6d4]">
+<div class="flex justify-between items-center text-[12px] mb-1.5">
+<span class="text-[#6e5849] font-medium">Calcolate: <strong class="text-[#3c2a1e] font-bold">1.420</strong> / 2.000 kcal</span>
+<span class="font-michroma text-[10.5px] text-[#4e653f] font-bold tracking-tight">71%</span>
+</div>
+<div class="w-full h-3 bg-[#eadecc] rounded-full overflow-hidden p-0.5 shadow-inner">
+<div class="h-full bg-gradient-to-r from-[#5a7649] to-[#4e653f] rounded-full transition-all duration-500 ease-out shadow-xs" style="width: 71%;"></div>
+</div>
+</div>
+</section>
+<!-- 4. ELEMENTO PRINCIPALE 3: BARRA LIQUIDI ASSUNTI -->
+<section class="creamy-card rounded-[28px] p-4 border border-[#fffdfa]/80 relative overflow-hidden transition-all duration-200">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<!-- Icon Illustration 7: Bottle -->
+<div class="w-12 h-12 rounded-[20px] bg-[#f0f9fa] p-1 shadow-[inset_0_2px_5px_rgba(45,102,117,0.08),0_2px_6px_rgba(0,0,0,0.04)] border border-[#d2ecf2] flex items-center justify-center shrink-0">
+<img alt="Bottiglia Nera Stilizzata" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1V9lo3Ow4Nx0pUWF-Ih4d6w6hssAt17un06B9unZFNlHtY2d7yvZ_IvKG5MVlwegClVLxnfmpWdrLRXT_6Y1N_I8OnkskTSV8vOFFSr1L4rJE3gdgSKeIOXgpZMcSEOwZGFgGNnLLoZX6QNTgFf0YESlxK_74gj2FZGcUTWqyJnebsAVFyOL8l_DzLz5jQ5k02hOeXS5ed7k1B8zVEhMu0wDm55zSi4ADXXy1PpTPgPWtBTXrSPo-SZ-CI"/>
+</div>
+<div>
+<span class="font-michroma text-[9px] text-[#427a8c] uppercase tracking-wider font-bold block">Equilibrio Idrico</span>
+<h2 class="font-michroma text-[15px] text-[#3c2a1e] font-semibold leading-tight mt-0.5">Idratazione &amp; Liquidi</h2>
+</div>
+</div>
+<!-- Quick add +250ml -->
+<div class="flex gap-1.5">
+<button class="px-3 py-1 rounded-full bg-[#dcf3f8] text-[#245868] font-michroma text-[10px] font-bold border border-[#bfe2ea] shadow-xs active:scale-95 hover:bg-[#cbeaf2] transition-transform" onclick="addWater(250)">
+              +250ml
+            </button>
+</div>
+</div>
+<!-- Barra input per liquidi -->
+<div class="flex items-center gap-2 soft-pill-inset rounded-2xl px-3.5 py-1.5 border border-[#e8dccb]">
+<span class="material-symbols-rounded text-[#9c8979] text-[18px]">water_drop</span>
+<input class="w-full bg-transparent font-body text-[13px] text-[#3c2a1e] placeholder:text-[#a08f80] focus:outline-none min-w-0 font-medium" id="waterInput" placeholder="Es. 500ml acqua naturale, 250ml tè verde..." type="text"/>
+<button aria-label="Aggiungi liquido" class="w-8 h-8 rounded-full bg-[#3f6d7d] text-[#ffffff] flex items-center justify-center shrink-0 shadow-sm active:scale-95 hover:bg-[#325865] transition-all" onclick="registerWater()">
+<span class="material-symbols-rounded text-[18px] font-bold">add</span>
+</button>
+</div>
+<!-- Progresso Idratazione -->
+<div class="mt-3 pt-2 border-t border-[#f1e6d4]">
+<div class="flex justify-between items-center text-[12px] mb-1.5">
+<span class="text-[#6e5849] font-medium">
+<strong class="text-[#3c2a1e] font-bold" id="waterAmountText">1.750 ml</strong> su 2.500 ml raggiunti
+            </span>
+<span class="font-michroma text-[10.5px] text-[#356f7f] font-bold tracking-tight" id="waterPercentText">70%</span>
+</div>
+<div class="w-full h-3 bg-[#eadecc] rounded-full overflow-hidden p-0.5 shadow-inner">
+<div class="h-full bg-gradient-to-r from-[#4f92a3] to-[#356f7f] rounded-full transition-all duration-500 ease-out shadow-xs" id="waterProgressBar" style="width: 70%;"></div>
+</div>
+</div>
+</section>
+<!-- 5. ELEMENTO SECONDARIO: BARRA DI SCRITTURA IN BASSO A DESTRA -->
+<div class="flex justify-end pt-0.5">
+<button class="flex items-center gap-2.5 bg-gradient-to-r from-[#6e8a5b] to-[#5a7649] text-[#ffffff] px-4 py-2.5 rounded-[22px] shadow-[0_6px_16px_rgba(35,20,10,0.22)] active:scale-95 transition-all duration-150 hover:brightness-105 border border-[#86a670]/40" onclick="togglePlannerModal()">
+<span class="material-symbols-rounded text-[20px]">edit_calendar</span>
+<div class="text-left">
+<span class="block font-michroma text-[9.5px] uppercase font-bold tracking-wider leading-tight">PIANIFICA PIANO &amp; DIETA</span>
+<span class="block font-body text-[11px] font-medium opacity-90 leading-tight mt-0.5">+ Aggiungi pillola o regola dieta</span>
+</div>
+</button>
+</div>
+<!-- 6. AZIONI: PROMEMORIA PILLOLE E DIETA -->
+<section class="creamy-card rounded-[28px] p-4 border border-[#fffdfa]/80 shadow-[0_10px_24px_-4px_rgba(35,20,10,0.2)]">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-[#f3e6d8] flex items-center justify-center text-[#702c19]">
+<span class="material-symbols-rounded text-[18px]">event_available</span>
+</div>
+<h3 class="font-michroma text-[13px] text-[#3c2a1e] font-semibold">Promemoria &amp; Piano Giornaliero</h3>
+</div>
+<span class="font-michroma text-[9.5px] bg-[#eedecb] text-[#543c2b] px-3 py-0.5 rounded-full font-bold">Oggi</span>
+</div>
+<div class="space-y-2.5">
+<!-- Scheda Promemoria 1: Pillola -->
+<div class="p-3 bg-[#f7f0e3] rounded-2xl flex items-center justify-between transition-all duration-200 border border-[#ebe0cf]" id="doseReminder">
+<div class="flex items-center gap-2.5 min-w-0 pr-2">
+<div class="w-9 h-9 rounded-xl bg-[#ffdcc5] flex items-center justify-center shrink-0 text-[#702c19] shadow-xs">
+<span class="material-symbols-rounded text-[20px]">medication_liquid</span>
+</div>
+<div class="min-w-0">
+<p class="font-body text-[12.5px] text-[#3c2a1e] font-bold truncate">Ore 20:30 • Pillola Magnesio + Calcio</p>
+<p class="font-body text-[11px] text-[#786455] truncate mt-0.5">Da assumere dopo cena con un bicchiere d'acqua</p>
+</div>
+</div>
+<button class="shrink-0 font-body text-[11.5px] px-3.5 py-1.5 rounded-full bg-[#543c2b] text-[#ffffff] font-bold shadow-xs active:scale-95 transition-transform flex items-center gap-1 hover:bg-[#432f22]" id="confirmBtn" onclick="confirmDose()">
+<span class="material-symbols-rounded text-[15px]">check</span>
+<span>Conferma assunzione</span>
+</button>
+</div>
+<!-- Scheda Promemoria 2: Cena -->
+<div class="p-3 bg-[#f7f0e3] rounded-2xl flex items-center justify-between border border-[#ebe0cf]">
+<div class="flex items-center gap-2.5 min-w-0 pr-2">
+<div class="w-9 h-9 rounded-xl bg-[#d0ebbb] flex items-center justify-center shrink-0 text-[#244b14] shadow-xs">
+<span class="material-symbols-rounded text-[20px]">dinner_dining</span>
+</div>
+<div class="min-w-0">
+<p class="font-body text-[12.5px] text-[#3c2a1e] font-bold truncate">Cena consigliata • 450 kcal rimanenti</p>
+<p class="font-body text-[11px] text-[#786455] truncate mt-0.5">Consigliate Proteine magre e verdure a foglia verde</p>
+</div>
+</div>
+<span class="shrink-0 font-body text-[11px] px-3 py-1 rounded-full bg-[#eae0cf] text-[#543c2b] font-semibold border border-[#d8ccbb]">
+              Pianificata
+            </span>
+</div>
+</div>
+</section>
+<!-- 7. ALTRO: CONSIGLI E CURIOSITÀ SULLA SALUTE ("SAPEVI CHE...") -->
+<section class="rounded-[28px] p-4 relative overflow-hidden bg-gradient-to-br from-[#fbf4ea] to-[#f4e8d8] border border-[#ffeedd]/90 shadow-[0_10px_24px_-4px_rgba(35,20,10,0.2)]">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="text-[18px]">💡</span>
+<h3 class="font-michroma text-[13px] text-[#3c2a1e] font-semibold">Sapevi che...</h3>
+</div>
+<button class="font-body text-[11.5px] px-3 py-1 rounded-full bg-[#ffffff] text-[#702c19] font-bold shadow-xs active:scale-95 border border-[#edd7c2] transition-transform flex items-center gap-1 hover:bg-[#fff9f3]" onclick="rotateFact()">
+<span class="material-symbols-rounded text-[14px]">autorenew</span>
+<span>Altro consiglio</span>
+</button>
+</div>
+<p class="font-body text-[12.5px] text-[#473426] leading-relaxed transition-opacity duration-200 mt-1 font-medium" id="factContent">
+          Bere un bicchiere d'acqua 15 minuti prima dei pasti favorisce una corretta assimilazione dei nutrienti e aiuta a calcolare meglio il senso di sazietà naturale.
+        </p>
+<div class="mt-3 pt-2 flex items-center gap-1.5 text-[#4e653f] border-t border-[#ebd8c5]">
+<span class="material-symbols-rounded text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-body text-[10.5px] font-bold tracking-wide">Consiglio verificato dalla redazione medica Sanctum</span>
+</div>
+</section>
+</div>
+<!-- SCRIPT LOGIC -->
+<script>
+      let waterCurrent = 1750;
+      const waterTarget = 2500;
+
+      function updateWaterUI() {
+        const percent = Math.min(100, Math.round((waterCurrent / waterTarget) * 100));
+        document.getElementById('waterAmountText').innerText = waterCurrent.toLocaleString('it-IT') + ' ml';
+        document.getElementById('waterPercentText').innerText = percent + '%';
+        document.getElementById('waterProgressBar').style.width = percent + '%';
+      }
+
+      function addWater(amount) {
+        waterCurrent += amount;
+        updateWaterUI();
+      }
+
+      function registerWater() {
+        const input = document.getElementById('waterInput');
+        if (input.value.trim() !== '') {
+          addWater(250);
+          input.value = '';
+        }
+      }
+
+      function registerPill() {
+        const input = document.getElementById('pillInput');
+        if (input.value.trim() !== '') {
+          document.getElementById('pillProgressText').innerText = 'Oggi: 3/3 assunte (Completato!)';
+          const dots = document.getElementById('pillDots').children;
+          if (dots[2]) {
+            dots[2].className = 'w-4 h-2 rounded-full bg-[#702c19] shadow-xs';
+          }
+          input.value = '';
+        }
+      }
+
+      function registerFood() {
+        const input = document.getElementById('foodInput');
+        if (input.value.trim() !== '') {
+          input.value = '';
+        }
+      }
+
+      function confirmDose() {
+        const btn = document.getElementById('confirmBtn');
+        btn.innerHTML = '<span class="material-symbols-rounded text-[14px]">done_all</span> Assunta!';
+        btn.classList.remove('bg-[#543c2b]', 'hover:bg-[#432f22]');
+        btn.classList.add('bg-[#4e653f]', 'text-white');
+        document.getElementById('doseReminder').classList.add('opacity-80');
+      }
+
+      const facts = [
+        "Bere un bicchiere d'acqua 15 minuti prima dei pasti favorisce una corretta assimilazione dei nutrienti e aiuta a calcolare meglio il senso di sazietà naturale.",
+        "Un riposo regolare di almeno 7-8 ore a notte riduce l'infiammazione sistemica e stabilizza i picchi di glicemia mattutini.",
+        "Assumere il magnesio la sera favorisce il rilassamento della muscolatura striata e predispone ad una fase REM più profonda.",
+        "Camminare per soli 10 minuti dopo pranzo e cena aiuta a velocizzare lo svuotamento gastrico e a regolarizzare i valori pressori."
+      ];
+
+      let factIndex = 0;
+      function rotateFact() {
+        factIndex = (factIndex + 1) % facts.length;
+        const textEl = document.getElementById('factContent');
+        textEl.style.opacity = '0';
+        setTimeout(() => {
+          textEl.innerText = facts[factIndex];
+          textEl.style.opacity = '1';
+        }, 150);
+      }
+
+      function togglePlannerModal() {
+        const input = document.getElementById('pillInput');
+        input.focus();
+        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    </script>
+</main>
+</body></html>
